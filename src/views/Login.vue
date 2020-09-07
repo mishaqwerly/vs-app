@@ -89,9 +89,10 @@ export default {
       
       try {
         await this.$store.dispatch('login',formData)
-        //console.log(formData)
         this.$router.push('/')
-      } catch (e) {}
+      } catch (e) {
+        
+      }
     }
   },
   mounted() {
