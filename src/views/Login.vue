@@ -63,6 +63,7 @@
 
 <script>
 import { email, required, minLength } from 'vuelidate/lib/validators'
+import massege from '../utils/massege'
 export default {
   name: 'login',
   data: () => ({
@@ -75,7 +76,7 @@ export default {
   }, 
   methods: {
     submitHandler() {
-      console.log(this.$v.password.$params.minLength.min)
+      //console.log(this.$v.password.$params.minLength.min)
       if (this.$v.$invalid) {
         this.$v.$touch()
         return
@@ -87,6 +88,11 @@ export default {
       }
       console.log(formData)
       this.$router.push('/')
+    }
+  },
+  mounted() {
+    if (massege[this.$route.query.message]) {
+      this.$massege(massege[this.$route.query.message])
     }
   }
 }
